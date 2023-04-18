@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:period_tracker/screens/entry.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class DemoScreen extends StatefulWidget {
+class DateSelect extends StatefulWidget {
 
   @override
   _DemoScreenState createState() => _DemoScreenState();
 }
 
-class _DemoScreenState extends State<DemoScreen> {
+class _DemoScreenState extends State<DateSelect> {
 
   CalendarController _calendarController;
   DateTime _lastPeriodDate;
@@ -161,14 +161,15 @@ class _DemoScreenState extends State<DemoScreen> {
                       children: [
                         Icon(
                           Icons.calendar_today,  // Replace with your desired icon
-                          color: Colors.grey[800],
+                          color: Colors.pinkAccent,
                         ),
                         Text(
                           'Last period:',
                           style: TextStyle(
-                            color: Colors.grey[800],
+                            color: Colors.black,
                             fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.italic,
                           ),
                         ),
                         Text(
@@ -191,20 +192,21 @@ class _DemoScreenState extends State<DemoScreen> {
                       children: [
                         Icon(
                           Icons.loop,  // Replace with your desired icon
-                          color: Colors.grey[800],
+                          color: Colors.pink,
                         ),
                         Text(
                           'Cycle length',
                           style: TextStyle(
-                            color: Colors.grey[800],
+                            color: Colors.black,
                             fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.italic,
                           ),
                         ),
                         Text(
                           '$_cycleLength days',
                           style: TextStyle(
-                            color: Colors.grey[700],
+                            color: Colors.black,
                             fontSize: 18,
                           ),
                         ),
@@ -223,18 +225,21 @@ class _DemoScreenState extends State<DemoScreen> {
                       children: [
                         Icon(
                           Icons.watch,  // Replace with your desired icon
-                          color: Colors.grey[800],
+                          color: Colors.pinkAccent,
                         ),
                         Text(
                           'Due Ovulation',
                           style: TextStyle(
-                            color: Colors.grey[800],
+                            color: Colors.black,
                             fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.italic,
                           ),
                         ),
-                        Text(
-                          _calculateNextOvulationDate() != null
+                        /*Text(
+                          //_lastPeriodDate?.toString()?.substring(0, 10) ?? 'N/A',
+                          _calculateNextOvulationDate().toString()?.substring(0,10)
+                              != null
                               ? DateTime.fromMillisecondsSinceEpoch(
                               _calculateNextOvulationDate())
                               .toString()
@@ -244,7 +249,7 @@ class _DemoScreenState extends State<DemoScreen> {
                             color: Colors.grey[700],
                             fontSize: 18,
                           ),
-                        ),
+                        ),*/
                       ],
                     ),
                   )
@@ -272,9 +277,9 @@ class _DemoScreenState extends State<DemoScreen> {
                     child: Text(
                       'Drink some water today',
                       style: TextStyle(
-                        color: Colors.black.withOpacity(0.54),
+                        color: Colors.black.withOpacity(0.9),
                         fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.italic,
 
                       ),

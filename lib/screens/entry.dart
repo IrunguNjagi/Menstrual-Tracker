@@ -6,6 +6,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'display_data.dart';
 
+
+
 class DataModel {
   int id;
   String data;
@@ -113,6 +115,10 @@ class _DataEntryState extends State<DataEntry> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
                 color: Colors.white30,
+                image: DecorationImage(
+                  image: AssetImage('assets/images/woman_flow.png'),
+                  fit: BoxFit.fitWidth
+                )
               ),
             ),
             SizedBox(

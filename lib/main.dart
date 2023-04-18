@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:period_tracker/screens/calendar_picker.dart';
-import 'package:period_tracker/screens/demo_screen.dart';
+import 'package:period_tracker/screens/Date_Select.dart';
 import 'package:period_tracker/screens/home_page.dart';
+import 'package:period_tracker/screens/landing_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.pink,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: DemoScreen(),
+      home: LandingPage(),
       debugShowCheckedModeBanner: false,
     );
   }

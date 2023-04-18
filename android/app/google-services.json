@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "566930909745",
+    "project_id": "cycle-tracker-d17a3",
+    "storage_bucket": "cycle-tracker-d17a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566930909745:android:c6ab2a7f4fe37d8396c310",
+        "android_client_info": {
+          "package_name": "com.example.period_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566930909745-ceh9k27f2d21veotisi269u219m8tbov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWNYDwT8JcoHOkauTAUWgtrn8JnVBbi4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566930909745-ceh9k27f2d21veotisi269u219m8tbov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

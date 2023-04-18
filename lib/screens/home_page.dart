@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:period_tracker/screens/Date_Select.dart';
 import 'package:period_tracker/screens/calendar_picker.dart';
 import 'package:period_tracker/screens/display_data.dart';
 import 'package:period_tracker/screens/entry.dart';
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                   });
                 },
                 children: [
-                  PeriodTrackerApp(),
+                  DateSelect(),
                   DataEntry(),
                   DataDisplay(),
                 ],

@@ -81,6 +81,10 @@ class _DataDisplayState extends State<DataDisplay> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
                 color: Colors.white30,
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/woman_flow.png'),
+                      fit: BoxFit.fitWidth
+                  )
               ),
             ),
 
