@@ -1,4 +1,4 @@
-
+//this model defines the fields that can be extracted from the table in the database.
 
 class DataModel {
   int id;

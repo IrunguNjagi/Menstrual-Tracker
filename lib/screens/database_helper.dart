@@ -2,6 +2,9 @@ import 'package:period_tracker/screens/data_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
+/*This particular class contains code of the database helper, where tables are defined and
+corresponding code outlined
+*/
 class DatabaseHelper {
   static Database _database;
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();

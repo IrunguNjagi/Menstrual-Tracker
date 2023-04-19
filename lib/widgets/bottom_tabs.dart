@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:period_tracker/screens/calendar_picker.dart';
 import 'package:period_tracker/screens/display_data.dart';
 import 'package:period_tracker/screens/entry.dart';
+import 'package:period_tracker/screens/login_page.dart';
 
 class BottomTabs extends StatefulWidget {
 
@@ -21,6 +23,16 @@ class _BottomTabsState extends State<BottomTabs> {
   void initState() {
     super.initState();
   }
+
+  void signOut() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
+          (route) => false,
+    );
+  }
+
 
 
   @override
@@ -68,18 +80,13 @@ class _BottomTabsState extends State<BottomTabs> {
               widget.tabPressed(2);
             },
           ),
-         /* BottomTabBtn(
+         BottomTabBtn(
             imagePath: "assets/images/logout2.png",
             selected: _selectedTab == 3 ? true : false,
             onPressed: () {
-              Navigator.push(context,
-                MaterialPageRoute(
-                  builder: (context) => LoginPage(),
-                ),
-              );
-              FirebaseAuth.instance.signOut();
+              signOut();
             },
-          ),*/
+          ),
         ],
       ),
     );
