@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:period_tracker/screens/entry.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:table_calendar/table_calendar.dart';
+
+/*This page entails the first activity of the app after login, it allows a user
+to pick the data of the last day they got their period, they in turn get a
+calculated result of their expected next cycle and ovulation date
+ */
 
 class DateSelect extends StatefulWidget {
 
@@ -10,6 +16,7 @@ class DateSelect extends StatefulWidget {
 
 class _DemoScreenState extends State<DateSelect> {
 
+  //Here we initialize the variables that will be later called in respective functions below
   CalendarController _calendarController;
   DateTime _lastPeriodDate;
   int _cycleLength = 28;
@@ -19,6 +26,7 @@ class _DemoScreenState extends State<DateSelect> {
   void initState() {
     super.initState();
     _calendarController = CalendarController();
+    _loadLastSelectedDay();
   }
 
   @override
@@ -29,10 +37,12 @@ class _DemoScreenState extends State<DateSelect> {
 
 
   void _onDaySelected(DateTime day, List<dynamic> events,
-      List<dynamic> holidays) {
+      List<dynamic> holidays) async {
     setState(() {
       _lastPeriodDate = day;
     });
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt('lastSelectedDayTimestamp', _lastPeriodDate.millisecondsSinceEpoch);
   }
 
   void _onCycleLengthChanged(String value) {
@@ -57,6 +67,16 @@ class _DemoScreenState extends State<DateSelect> {
     return _lastPeriodDate
         .add(Duration(days: _ovulationlength))
         .millisecondsSinceEpoch;
+  }
+
+  void _loadLastSelectedDay() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int lastSelectedDayTimestamp = prefs.getInt('lastSelectedDayTimestamp');
+    if (lastSelectedDayTimestamp != null) {
+      setState(() {
+        _lastPeriodDate = DateTime.fromMillisecondsSinceEpoch(lastSelectedDayTimestamp);
+      });
+    }
   }
 
 
@@ -236,9 +256,8 @@ class _DemoScreenState extends State<DateSelect> {
                             fontStyle: FontStyle.italic,
                           ),
                         ),
-                        /*Text(
-                          //_lastPeriodDate?.toString()?.substring(0, 10) ?? 'N/A',
-                          _calculateNextOvulationDate().toString()?.substring(0,10)
+                        Text(
+                          _calculateNextOvulationDate()
                               != null
                               ? DateTime.fromMillisecondsSinceEpoch(
                               _calculateNextOvulationDate())
@@ -249,7 +268,7 @@ class _DemoScreenState extends State<DateSelect> {
                             color: Colors.grey[700],
                             fontSize: 18,
                           ),
-                        ),*/
+                        ),
                       ],
                     ),
                   )

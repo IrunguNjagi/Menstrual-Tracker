@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:period_tracker/screens/data_model.dart';
+import 'package:period_tracker/screens/database_helper.dart';
 import 'package:share/share.dart';
 import 'entry.dart';
 import 'dart:async';
@@ -35,8 +37,10 @@ class _DataDisplayState extends State<DataDisplay> {
   }
 
   Future<void> _shareData() async {
-    final data = _dataList.map((data) => data.data).join("\n");
-    await Share.share(data);
+    final header = "Here is a list of the symptoms i am experiencing from my cycle tracker application:\n";
+    final data = _dataList.map((data) => "• ${data.data}").join("\n");
+    final shareText = header + data;
+    await Share.share(shareText);
   }
  /*
   Future<void> _downloadAndShareData() async {
